@@ -1,0 +1,65 @@
+# KiCad Keyboard Shortcuts
+
+A quick reference guide for common and useful keyboard shortcuts in KiCad for schematic and PCB design.
+
+## General & Most Important
+
+These shortcuts work across most of KiCad's editors.
+
+| Shortcut        | Action               | Description                                                        |
+| --------------- | -------------------- | ------------------------------------------------------------------ |
+| `?` or `Ctrl+F1`| **Show Hotkey List** | Displays a full, searchable list of all current shortcuts.         |
+| `Ctrl+S`        | Save                 | Saves your current schematic or PCB file.                          |
+| `Ctrl+Z`        | Undo                 | Reverts the last action.                                           |
+| `Ctrl+Y`        | Redo                 | Re-applies an undone action.                                       |
+| `Esc`           | Cancel/Exit Tool     | Exits the current mode (like wiring or moving) and returns to the pointer. |
+| `F1` / `F2`     | Zoom In / Zoom Out   | Zooms the view in or out.                                          |
+| `F3`            | Redraw               | Refreshes the screen.                                              |
+| `Home`          | Fit to Screen        | Zooms to show the entire page or board.                            |
+| `Mouse Wheel`   | Zoom                 | Zooms in and out centered on the cursor.                           |
+| `Middle Mouse`  | Pan                  | Click and drag to move around the canvas.                          |
+
+---
+
+## Schematic Editor
+
+Shortcuts for use when drawing your circuit diagram.
+
+| Shortcut | Action                      | Description                                                        |
+| -------- | --------------------------- | ------------------------------------------------------------------ |
+| `A`      | **Add Symbol** | Opens the library to choose a component to place.                  |
+| `W`      | **Begin Wire** | Starts drawing a wire to connect components.                       |
+| `M`      | **Move Item** | Moves an item without keeping wires connected.                     |
+| `G`      | **Drag Item** | Drags an item while keeping wires attached (rubber-banding).       |
+| `R`      | **Rotate Item** | Rotates the selected component 90 degrees.                         |
+| `C`      | Copy Item                   | Duplicates the component under the cursor.                         |
+| `V`      | Edit Value                  | Edit the value of a component (e.g., "10k" for a resistor).        |
+| `E`      | Edit Properties             | Opens the full properties window for the selected item.            |
+| `P`      | Add Power Port              | Quickly add VCC, GND, and other power symbols.                     |
+| `L`      | Add Label                   | Places a net label.                                                |
+| `J`      | Add Junction                | Adds a connection dot where wires cross.                           |
+| `Q`      | Add No-Connect Flag         | Marks a pin as intentionally unconnected.                          |
+| `Del`    | Delete Item                 | Deletes the selected item.                                         |
+| `F8`     | **Update PCB from Schematic** | Sends your schematic changes to the PCB layout editor.             |
+
+---
+
+## PCB Editor
+
+Shortcuts for use when laying out your printed circuit board.
+
+| Shortcut        | Action                        | Description                                                        |
+| --------------- | ----------------------------- | ------------------------------------------------------------------ |
+| `X`             | **Route New Track** | The most-used key. Starts drawing a copper trace.                  |
+| `V`             | **Add Via** | Places a via while routing to switch layers.                       |
+| `M`             | **Move Item** | Moves a footprint or other item.                                   |
+| `G`             | **Drag Track** | Drags a track while keeping it connected at a 45/90-degree angle.  |
+| `R`             | **Rotate Item** | Rotates the selected footprint.                                    |
+| `F`             | **Flip Item** | Moves a component to the opposite side of the board.               |
+| `B`             | **Update All Zones** | Refills all copper pours (ground planes).                          |
+| `PgUp` / `PgDn` | Switch Active Layer           | Changes the current working layer (e.g., from top to bottom copper).|
+| `+` / `-` (Numpad)| Switch to Next/Previous Layer | Cycles through all visible layers.                                 |
+| `N`             | Next Grid Size                | Cycles through predefined grid settings for precise placement.     |
+| `Space`         | Reset Relative Coordinates    | Sets the `dx, dy` position readout to zero, useful for measuring.  |
+| `Alt+3`         | **3D Viewer** | Opens the 3D viewer to see what your board will look like.         |
+| `Backspace`     | Delete Last Track Segment     | Deletes the last segment of the track you are currently routing.   |
