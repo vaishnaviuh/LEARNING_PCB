@@ -1,4 +1,121 @@
 
-* Step 1: Schematic Design*
-*🔹 Step 2.1: Component Placement*
-*🔸 Step 2.1.1: Assigning Footprints*
+# 🧠 PCB Design Workflow — Step by Step
+
+---
+
+## 🧩 1️⃣ Schematic Design
+
+### 🪛 Create a New Project
+- Open **KiCad → File → New Project → New Project**  
+- Name your project and choose the working directory  
+
+### 🔹 Add Components
+- Open **Schematic Editor (Eeschema)**
+- Use the **Place Symbol** tool to add all components from the library  
+- Example: *resistors, ICs, connectors (e.g., Conn_01x15, Conn_02x05), power symbols, etc.*
+
+### 🔌 Connect Components
+- Draw **wires** to interconnect components logically  
+- Add **labels** (e.g., `VCC`, `GND`, `TX`, `RX`, `SCL`, `SDA`) to simplify the schematic  
+- Use **Place → No Connect Flag (blue X mark)** for unused pins  
+
+### 🔢 Annotate Schematic
+- Click **Tools → Annotate Schematic** to automatically assign reference numbers (`R1`, `C1`, `J1`, etc.)
+
+### ⚡ Electrical Rules Check (ERC)
+- Click **⚡ ERC** to detect open nets or unconnected pins  
+- Fix or mark intentional *No-Connects*
+
+### 🧱 Assign Footprints
+- Go to **Tools → Assign Footprints**
+- Match each component with its physical footprint  
+  **Examples:**
+Conn_01x15_Pin → PinHeader_1x15_P2.54mm_Vertical
+Conn_02x05_Dodd_Even → PinHeader_2x05_P2.54mm_Vertical
+Conn_01x03_Pin → PinHeader_1x03_P2.54mm_Vertical
+Conn_01x02_Pin → PinHeader_1x02_P2.54mm_Vertical
+
+
+### 🔗 Generate Netlist
+- Click **Tools → Update PCB from Schematic**  
+- This exports all electrical connectivity to PCB Editor  
+
+---
+
+## ⚙️ 2️⃣ PCB Layout Design
+
+### 🧭 Open PCB Editor
+- Open the **PCB Editor (Pcbnew)**  
+- Click **Update PCB from Schematic** to import all footprints and nets  
+
+### 🧩 Arrange Components
+- Move and rotate components for compact and logical placement  
+- Keep related connectors close and oriented properly  
+
+### 📐 Define Board Outline
+- Use **Edge.Cuts layer** → draw rectangular board boundary  
+- Example: `100mm × 30mm`  
+
+### ⚙️ Place Mounting Holes (Optional)
+- Add **3.2mm holes** at board corners  
+*(e.g., MountingHole_3.2mm_M3)*  
+
+### 🔀 Route Traces
+- Choose **Route → Interactive Router (X)**  
+- Use:
+- **Top Layer (F.Cu)** for signal traces *(red)*  
+- **Bottom Layer (B.Cu)** for ground/return paths *(blue)*  
+- Adjust track width:
+- Power lines → `1mm` or more  
+- Signals → `0.25–0.4mm`  
+
+### 🧲 Add Copper Fill
+- Add a **Ground Plane (GND)**  
+- Use **Add Filled Zone → Select GND net → Apply to both layers**  
+- Press `B` to refill zones  
+
+### 🔍 Design Rule Check (DRC)
+- Run **Inspect → Design Rules Checker**  
+- Fix any clearance, unconnected, or short errors  
+
+### ✍️ Add Silkscreen
+- Add **text labels**, **component names**, and **project title**  
+- Keep text inside board boundaries  
+
+---
+
+## 🧾 3️⃣ Finalization and Outputs
+
+### 🖥️ 3D Visualization
+- Press **Alt + 3** to open the 3D viewer  
+- Verify component placement and orientation  
+
+### 🖨️ Generate Gerber Files
+- Go to **File → Plot → Select Gerber Format**  
+- Choose layers:
+
+F.Cu, B.Cu, F.SilkS, B.SilkS, F.Mask, B.Mask, Edge.Cuts
+
+- Click **Plot**
+
+### 🕳️ Generate Drill Files
+- Click **Generate Drill Files** after Gerber generation  
+
+### 🧾 Check Gerbers
+- Open **GerbView** or use an **online Gerber viewer** to verify  
+
+### 📋 Generate BOM (Bill of Materials)
+- From schematic → **Tools → Generate BOM**  
+- Include component name, value, footprint, and quantity  
+
+💡 Git Commands
+git init
+git add .
+git commit -m "Initial PCB design and schematic added"
+git branch -M main
+git remote add origin https://github.com/username/pcb-design-project.git
+git push -u origin main
+
+ Designed using KiCad v7.0 — A complete PCB design workflow example
+.
+Author: Vaishnavi Hiremath
